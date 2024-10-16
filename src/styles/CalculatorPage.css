@@ -2,7 +2,7 @@
   background-color: #1a1a1a;
   padding: 2rem;
   border-radius: 10px;
-  color: white;
+  color: rgb(0, 0, 0);
   max-width: 600px;
   margin: 0 auto;
 }
@@ -10,6 +10,7 @@
 h1 {
   font-size: 2rem;
   margin-bottom: 1rem;
+  color: white;
 }
 
 .tabs {
@@ -137,4 +138,69 @@ h1 {
   font-size: 1.1rem;
   cursor: pointer;
   width: 100%;
+}
+
+.profile-form {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 10px;
+  color: #333;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.profile-form h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.form-group select,
+.form-group input {
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+.form-group select:focus,
+.form-group input:focus {
+  border-color: #00ff84;
+  outline: none;
+}
+
+.form-group input[type="text"] {
+  margin-top: 0.5rem;
+}
+
+
+.tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 1rem;
+}
+
+.tab {
+  background: none;
+  border: none;
+  color: #888;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.tab.active {
+  color: #00ff84;
+  border-bottom: 2px solid #00ff84;
+}
+
+.tab-content {
+  background-color: #f9f9f9;
+  padding: 1rem;
+  border-radius: 10px;
 }

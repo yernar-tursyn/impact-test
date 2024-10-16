@@ -1,82 +1,101 @@
 import React, { useState } from "react";
-import "../styles/CalculatorPage.css"; // Если хотите стилизовать компонент
+import "../styles/CalculatorPage.css";
 
 function CalculatorPage() {
   const [activeTab, setActiveTab] = useState("installments");
-  const [creditAmount, setCreditAmount] = useState(5000);
-  const [term, setTerm] = useState(6);
+  const [schoolType, setSchoolType] = useState("");
+  const [customSchool, setCustomSchool] = useState("");
 
-  const handleAmountChange = (event) => {
-    setCreditAmount(event.target.value);
+  const schoolOptions = [
+    "Государственная школа",
+    "Частная школа",
+    "Международная школа",
+    "Гимназия",
+    "Лицей",
+    "Техническая школа",
+    "Военная школа",
+    "Религиозная школа",
+    "Школа с углубленным изучением предметов",
+    "Школа-интернат",
+    "Школа искусств",
+    "Школа для одаренных детей",
+    "Другое",
+  ];
+
+  const handleSchoolChange = (event) => {
+    setSchoolType(event.target.value);
+    // Если выбрано "Другое", очищаем поле customSchool для ввода
+    if (event.target.value !== "Другое") {
+      setCustomSchool("");
+    }
   };
 
-  const handleTermChange = (selectedTerm) => {
-    setTerm(selectedTerm);
-  };
-
-  const calculateMonthlyPayment = () => {
-    // Простая формула для расчета ежемесячного платежа
-    return (creditAmount / term).toFixed(0);
+  const handleCustomSchoolChange = (event) => {
+    setCustomSchool(event.target.value);
   };
 
   const renderTabContent = () => {
     if (activeTab === "installments") {
       return (
-        <div className="calculator-content">
-          <div className="partner">
-            <label>Партнер</label>
-            <select>
-              <option>ТОО "Мечта Маркет"</option>
-              <option>ТОО "Армада"</option>
-              <option>ТОО "Сулпак"</option>
-              <option>ТОО "Технодом"</option>
-            </select>
-          </div>
-
-          <div className="credit-amount">
-            <label>Сумма микрокредита</label>
-            <input
-              type="range"
-              min="5000"
-              max="2000000"
-              value={creditAmount}
-              onChange={handleAmountChange}
-            />
-            <div className="range-values">
-              <span>5 000 ₸</span>
-              <span>2 000 000 ₸</span>
+        <div className="profile-form">
+          <h2>Анкета для заполнения</h2>
+          <form>
+            <div className="form-group">
+              <label>1. Имя</label>
+              <input type="text" placeholder="Введите имя" />
             </div>
-            <div className="amount-display">{creditAmount} ₸</div>
-          </div>
-
-          <div className="term-selection">
-            <label>Срок в месяцах</label>
-            <div className="terms">
-              {[6, 12, 24, 36, 48].map((t) => (
-                <button
-                  key={t}
-                  className={term === t ? "active" : ""}
-                  onClick={() => handleTermChange(t)}
-                >
-                  {t}
-                </button>
-              ))}
+            <div className="form-group">
+              <label>2. Фамилия</label>
+              <input type="text" placeholder="Введите фамилию" />
             </div>
-          </div>
-
-          <div className="payment-info">
-            <div>
-              <span>Ежемесячный платёж</span>
-              <span>{calculateMonthlyPayment()} ₸</span>
+            <div className="form-group">
+              <label>3. Дата рождения</label>
+              <input type="date" />
             </div>
-            <div>
-              <span>Переплата</span>
-              <span>0 ₸</span>
+            <div className="form-group">
+              <label>4. Школа</label>
+              <select value={schoolType} onChange={handleSchoolChange}>
+                <option value="">Выберите тип школы</option>
+                {schoolOptions.map((option) => (
+                  <option key={option} value={option}>
+                    {option}
+                  </option>
+                ))}
+              </select>
+              {schoolType === "Другое" && (
+                <input
+                  type="text"
+                  placeholder="Введите название школы"
+                  value={customSchool}
+                  onChange={handleCustomSchoolChange}
+                />
+              )}
             </div>
-            <p>Расчет предварительный. Не является офертой.</p>
-          </div>
-
-          <button className="apply-btn">Оформить рассрочку</button>
+            <div className="form-group">
+              <label>5. Класс обучения</label>
+              <input type="number" placeholder="Класс обучения" />
+            </div>
+            <div className="form-group">
+              <label>6. Год выпуска</label>
+              <input type="number" placeholder="2025" />
+            </div>
+            <div className="form-group">
+              <label>7. Любимые предметы</label>
+              <input type="text" placeholder="Физика, Математика" />
+            </div>
+            <div className="form-group">
+              <label>8. High school type</label>
+              <input type="text" placeholder="Тип школы" />
+            </div>
+            <div className="form-group">
+              <label>9. Бюджет на обучение в год</label>
+              <input type="text" placeholder="Введите бюджет" />
+            </div>
+            <div className="form-group">
+              <label>10. Предпочитаемые страны</label>
+              <input type="text" placeholder="Например, страны Европы" />
+            </div>
+          </form>
         </div>
       );
     } else {
