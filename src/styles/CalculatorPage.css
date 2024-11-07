@@ -3,7 +3,7 @@
   padding: 2rem;
   border-radius: 10px;
   color: rgb(0, 0, 0);
-  max-width: 600px;
+  max-width: fit-content;
   margin: 0 auto;
 }
 
@@ -22,14 +22,9 @@ h1 {
 .tab {
   background: none;
   border: none;
-  color: #888;
+  color: #000000;
   padding: 0.5rem 1rem;
   cursor: pointer;
-}
-
-.tab.active {
-  color: #00ff84;
-  border-bottom: 2px solid #00ff84;
 }
 
 .calculator-content {
@@ -186,21 +181,65 @@ h1 {
   margin-bottom: 1rem;
 }
 
-.tab {
-  background: none;
-  border: none;
-  color: #888;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-}
-
-.tab.active {
-  color: #00ff84;
-  border-bottom: 2px solid #00ff84;
-}
-
 .tab-content {
   background-color: #f9f9f9;
   padding: 1rem;
   border-radius: 10px;
+}
+
+/* vneshkol */
+
+.profile-form,
+.academic-performance {
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 10px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.form-group select,
+.form-group input {
+  /* width: 100%; */
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.criteria-details {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
+}
+
+.tabs {
+  display: flex;
+  gap: 10px;
+}
+
+.tab {
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 5px;
+}
+
+.tab.active {
+  background-color: #00ff84;
+  color: rgb(0, 0, 0);
+}
+
+.tab-content {
+  margin-top: 20px;
 }

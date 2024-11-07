@@ -1,19 +1,32 @@
 import React from 'react';
-import './App.css'; // Подключаем CSS файл для стилизации
+import './App.css'; 
 import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
-import CalculatorPage from './components/CalculatorPage.js'; // Импортируем компонент приветствия
+import CalculatorPage from './components/CalculatorPage.js'; 
+import ProductPage from './components/ProductPage.js';
+import GreetingPage from './components/GreetingPage.js'; // Импортируем компонент GreetingPage
+import './index.css';
+
 
 function App() {
   const navigate = useNavigate();
 
-  // Функция для перенаправления на страницу приветствия
+  // Функция для перенаправления на страницу калькулятора
   const handleTestClick = () => {
     navigate('/calculator');
   };
 
+  // Функция для перехода на страницу продукта 1
+  const handleProductClick = () => {
+    navigate('/product');
+  };
+
+  // Функция для перехода на страницу GreetingPage для Продукта 2
+  const handleGreetingClick = () => {
+    navigate('/greeting');
+  };
+
   return (
     <div className="App">
-      {/* Навигационная панель */}
       <header className="navbar">
         <div className="logo">
           <img src="https://static.tildacdn.pro/tild3835-3562-4436-b934-663163663637/9.svg" alt="Badoo Employee" />
@@ -21,8 +34,8 @@ function App() {
         <nav>
           <ul>
             <li><a href="#home">Home</a></li>
-            <li><a href="#self-service">Self-Service</a></li>
-            <li><a href="#services">Our Services</a></li>
+            <li><a onClick={handleProductClick}>Продукт 1</a></li>
+            <li><a onClick={handleGreetingClick}>Продукт 2</a></li> {/* Обновленный клик для Продукта 2 */}
             <li><a href="#blog">Blog</a></li>
             <li><a href="#career">Career</a></li>
             <li><a href="#contacts">Contacts</a></li>
@@ -31,13 +44,10 @@ function App() {
         <button className="scoring-test-btn" onClick={handleTestClick}>Take a scoring test</button>
       </header>
 
-      {/* Основное содержимое страницы */}
       <main className="main-content">
-        {/* Заголовок и описание */}
         <h1>One platform meeting all your relocation needs</h1>
         <p>Get a Global Talent Visa and relocate to the UK. Start your journey now</p>
         
-        {/* Кнопка прохождения теста */}
         <button className="scoring-test-btn" onClick={handleTestClick}>Take a scoring test</button>
         <p>Evaluate your chances and get detailed feedback from our team</p>
       </main>
@@ -51,6 +61,8 @@ function AppWrapper() {
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/calculator" element={<CalculatorPage />} />
+        <Route path="/product" element={<ProductPage />} /> {/* Маршрут для Продукта 1 */}
+        <Route path="/greeting" element={<GreetingPage />} /> {/* Новый маршрут для Продукта 2 */}
       </Routes>
     </Router>
   );
