@@ -51,7 +51,7 @@ export default function GreetingPage() {
       difficulties[Math.floor(Math.random() * difficulties.length)];
 
     setResult(
-      `С выбранной страной ${country}, профессией ${profession} и бюджетом в ${budget} вам будет выгоднее поступать в ${difficulty}.`
+      `С выбранной страной ${country}, профессией ${profession} и бюджетом в ${budget} $ вам будет выгоднее поступать в ${difficulty}.`
     );
   };
 
@@ -333,7 +333,7 @@ export default function GreetingPage() {
           {/* Кнопка Показать План */}
           <button
             type="submit"
-            className="w-full p-3 bg-blue-600 text-white font-semibold rounded hover:bg-blue-700"
+            className="w-[fit-content] p-3 bg-blue-600 text-white font-semibold rounded hover:bg-blue-700"
           >
             Показать план
           </button>
@@ -348,7 +348,7 @@ export default function GreetingPage() {
         <button
           type="button"
           onClick={handleGenerateResult}
-          className="w-full p-3 mt-4 bg-teal-400 text-white font-semibold rounded hover:bg-teal-500"
+          className="w-[fit-content] p-3 mt-4 bg-teal-400 text-white font-semibold rounded hover:bg-teal-500"
         >
           Генерировать результат
         </button>
