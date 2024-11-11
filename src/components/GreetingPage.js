@@ -109,7 +109,7 @@ export default function GreetingPage() {
   };
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 w-[1200px] mx-auto">
       {/* Header Section */}
       <header className="flex justify-center items-center border-b">
         <img src={promoImage} alt="Промо блок" />
@@ -119,7 +119,7 @@ export default function GreetingPage() {
       <h2 className="text-2xl font-semibold text-center">
         Как работает калькулятор
       </h2>
-      <section className="text-center flex w-max mx-auto gap-[106px]">
+      <section className="text-center flex mx-auto gap-[106px]">
         <div className="w-1/3 p-4 border rounded-lg shadow-md">
           <h3 className="text-xl font-bold">Шаг 1</h3>
           <p className="text-gray-600 mt-2">
@@ -145,7 +145,7 @@ export default function GreetingPage() {
         <h2 className="text-xl font-semibold text-center">
           Планирование финансирования
         </h2>
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-4 w-[1200px]">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <input
               type="text"
@@ -214,7 +214,6 @@ export default function GreetingPage() {
               <option value="">Выберите формат обучения</option>
               <option value="bachelor">Бакалавриат</option>
               <option value="master">Магистратура</option>
-              <option value="phd">Докторантура</option>
             </select>
           </div>
 
@@ -348,7 +347,7 @@ export default function GreetingPage() {
         <button
           type="button"
           onClick={handleGenerateResult}
-          className="w-[fit-content] p-3 mt-4 bg-teal-400 text-white font-semibold rounded hover:bg-teal-500"
+          className="w-[fit-content] p-3 mt-4 mb-[40px] bg-teal-400 text-white font-semibold rounded hover:bg-teal-500"
         >
           Генерировать результат
         </button>
