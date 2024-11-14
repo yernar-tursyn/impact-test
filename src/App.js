@@ -5,6 +5,7 @@ import CalculatorPage from './components/CalculatorPage.js';
 import ProductPage from './components/ProductPage.js';
 import GreetingPage from './components/GreetingPage.js'; // Импортируем компонент GreetingPage
 import './index.css';
+import QuizPage from './components/QuizPage.js';
 
 
 function App() {
@@ -25,6 +26,10 @@ function App() {
     navigate('/greeting');
   };
 
+  const handleQuizClick = () => {
+    navigate('/quiz');
+  };
+
   return (
     <div className="App">
       <header className="navbar">
@@ -36,7 +41,7 @@ function App() {
             <li><a href="#home">Home</a></li>
             <li><a onClick={handleProductClick}>Продукт 1</a></li>
             <li><a onClick={handleGreetingClick}>Продукт 2</a></li> {/* Обновленный клик для Продукта 2 */}
-            <li><a href="#blog">Blog</a></li>
+            <li><a onClick={handleQuizClick}>Test</a></li>
             <li><a href="#career">Career</a></li>
             <li><a href="#contacts">Contacts</a></li>
           </ul>
@@ -63,6 +68,7 @@ function AppWrapper() {
         <Route path="/calculator" element={<CalculatorPage />} />
         <Route path="/product" element={<ProductPage />} /> {/* Маршрут для Продукта 1 */}
         <Route path="/greeting" element={<GreetingPage />} /> {/* Новый маршрут для Продукта 2 */}
+        <Route path="/quiz" element={<QuizPage />} /> {/* Новый маршрут для Продукта 2 */}
       </Routes>
     </Router>
   );
